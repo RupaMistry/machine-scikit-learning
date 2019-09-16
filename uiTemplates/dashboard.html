@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="container">
+    <div class="row">
+        {% for model in my_models %}
+            <div class="col-md-4">
+                <div class="panel panel-info">
+                    <div class="panel-heading">
+                        <h4 class="panel-title">{{model.name}}</h4>
+                    </div>
+                    <div class="panel-body">
+                        <table class="table">
+                            <tbody>
+                                <tr>
+                                    <td>ID</td>
+                                    <td>{{model.id}}</td>
+                                </tr>
+                                <tr>
+                                    <td>Created At</td>
+                                    <td>{{model.created_at}}</td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <a class="btn btn-danger btn-sm" href="/delete_model/?model_id={{model.id}}">Delete</a>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+</div>
+
+{% endblock %}
